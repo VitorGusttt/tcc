@@ -1,0 +1,24 @@
+<body>
+    <div class="formulario">
+        <form action="../php/actions/fazCadastroLivro.php" method="post">
+
+            <label for="nomeLivro">Nome do Livro:</label>
+            <input type="text" name="nomeLivro" id="nomeLivro">
+
+            <label for="autorLivro">Autor do livro:</label>
+            <input type="text" name="autorLivro" id="autorLivro">
+
+            <label for="editoraLivro">Editora:</label>
+            <input type="text" name="editoraLivro" id="editoraLivro">
+
+            <label for="categoriaLivro">Categoria do Livro:</label>
+            <select name="categoriaLivro" id="categoriaLivro">
+                <option value="Literatura">Literatura</option>
+                <option value="Didático">Didático</option>
+            </select>
+
+            <button type="submit" id="btnCadastro">Solicitar</button>
+        </form>
+        
+    </div>
+</body>

@@ -1,0 +1,32 @@
+@media (max-width:1200px) {
+    #navbarPesquisa form button{
+        width: 7%;
+    }
+}
+
+@media (max-width:1000px) {
+
+    #navbarPesquisa form input{
+        width: 80%;
+    }
+
+    #navbarPesquisa form button{
+        width: 10%;
+    }
+}
+
+@media (max-width:600px) {
+
+    #navbarPesquisa{
+        width: 60%;
+    }
+
+    #navbarPesquisa form button{
+        width: 15%;
+    }
+    
+    #btnCadastro {
+        width: 50%;
+    }
+}
+
