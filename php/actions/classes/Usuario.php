@@ -39,10 +39,11 @@
         public function cadastroBD($conn){
             $sql = "INSERT INTO usuario VALUES ('$this->nome', '$this->cpf', '$this->senha', '$this->categoria')";
             if ($conn->query($sql)){
-                echo 'cadastrado';
+                header('Location: ../login.php');
             }
             else{
-                echo 'erro';
+                echo '<h1 style = "color: white; background-color: #2E332D; text-align: center">Erro</h1>';
+                echo '<a href = "../cadastro.php" style = "color: white; background-color: #2E332D; text-align: center;">Tente novamente</a>';
             };
         }
 
@@ -57,13 +58,14 @@
                     //se tiver resposta
                     if($numeroR == 1){
                         if($row['senha'] == $senha){
-                            echo'logado';
+                            header('Location: ../perfil.php');
                             //iniciar sessao
                             $_SESSION['logado'] = 1;
                             $_SESSION['cpf'] = $cpf;
                         }
                         else{
-                            echo 'senha errada';
+                           echo '<h1 style = "color: white; background-color: #2E332D; text-align: center">Senha incorreta</h1>';
+                           echo '<a href = "../login.php" style = "color: white; background-color: #2E332D; text-align: center;">Tente novamente</a>';
                         };
                         
                     }
@@ -71,12 +73,13 @@
             }
             else{
                 echo 'cpf n logado';
-            };
-            
-           
+            };   
         }
-
-            
+        
+        public function sairConta(){
+            session_destroy();
+            header('Location: ../home.php');
+        }
 
         public function imprimir(){
             echo 'nome: ' . $this->nome . '<br>';

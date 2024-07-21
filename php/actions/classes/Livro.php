@@ -36,17 +36,19 @@
 
         //metodos adicionais
         public function cadastroBD($conn){
-            if($_SESSION['logado'] != 1){
-                echo "<div class = 'mensagemPHP'><h3>Por favor, efetue o login</h3></div>";
+            if(!isset($_SESSION['logado'])){
+                echo '<h1 style = "color: white; background-color: #2E332D; text-align: center">Efetue o Login</h1>';
+                echo '<a href = "../login.php" style = "color: white; background-color: #2E332D; text-align: center;">Login</a>';
             }
             else{
                 $cpf = $_SESSION['cpf'];
                 $sql = "INSERT INTO livro VALUES (DEFAULT, '$this->nome', '$this->autor', '$this->editora', '$this->categoria', '$cpf')";
                 if ($conn->query($sql)){
-                    echo "<div class = 'mensagemPHP'><h3>Cadastrado</h3></div>";
+                    header('Location: ../perfil.php');
                 }
                 else{
-                    echo "<div class = 'mensagemPHP'><h3>Ocorreu algum erro<br> Tente novamente</h3></div>";
+                    echo '<h1 style = "color: white; background-color: #2E332D; text-align: center">Ocorreu um erro</h1>';
+                        echo '<a href = "../cadastroLivros.php" style = "color: white; background-color: #2E332D; text-align: center;">Tente novamente</a>';
                 };
             };
             

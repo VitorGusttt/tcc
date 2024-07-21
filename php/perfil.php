@@ -18,6 +18,7 @@
             <div class='infoPerfil'>
                 <p>cpf:</p>
                 <h2>$cpf</h2>
+                <a href = 'actions/sairConta.php'>Sair da conta</a>
             </div>
     
     

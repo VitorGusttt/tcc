@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if($_SESSION['logado'] != 1){
+    if(!isset($_SESSION['logado'])){
         include('../layouts/header.html');
         include('../layouts/formCadastro.html');
     }
