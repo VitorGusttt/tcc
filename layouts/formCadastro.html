@@ -1,20 +1,26 @@
+
 <body>
     <div class="formulario">
-        <form action="../php/actions/fazCadastro.php" method="post">
+        <form action="../php/actions/fazCadastro.php" method="post" id="formCad">
 
             <label for="nomeUsuario">Nome Completo:</label>
+            <span id="erroNome"></span>
             <input type="text" name="nomeUsuario" id="nomeUsuario">
 
             <label for="cpfUsuario">Cpf:</label>
+            <span id="erroCpf"></span>
             <input type="text" name="cpfUsuario" id="cpfUsuario">
 
             <label for="senhaUsuario">Senha:</label>
+            <span id="erroSenha"></span>
+
             <input type="password" name="senhaUsuario" id="senhaUsuario">
 
             <label for="categoriaUsuario">Categoria Usuario:</label>
             <select name="categoriaUsuario" id="categoriaUsuario">
                 <option value="aluno">Aluno</option>
                 <option value="docente">Docente</option>
+                <option value="biblioteca">Biblioteca</option>
             </select>
 
             <button type="submit" id="btnCadastro">Cadastrar-se</button>
