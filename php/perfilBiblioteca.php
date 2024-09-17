@@ -41,11 +41,14 @@
                      <p>$row[autor]</p>
                   </div>
             </div>";
+
         }
+        echo "<a id = 'linkCompra' href = 'actions/fazCompra.php'><button type= 'submit' class = 'btn-compra'>COMPRAR</button></a>";
     }
     else 
     {
        echo 'Nenhum livro solicitado!';
+       echo 'Para solicitar basta clicar no livro';
     };
     //fecho html
 ?>

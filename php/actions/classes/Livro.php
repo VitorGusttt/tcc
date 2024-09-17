@@ -61,6 +61,50 @@
             
         }
 
+        public function serSelecionado($conn){
+            $id = $_GET['id'];
+            
+            $query = "UPDATE livro SET statusLivro = 1 where id = $id";
+            if ($conn->query($query)){
+                header('Location: home.php');
+            ?>
+                <script>
+                    alert('Livro solicitado');
+                </script>
+                <?php
+            }
+        }
+        
+        public function serComprado($conn){
+            $sql = "SELECT * FROM livro WHERE statusLivro = 1";
+            $resultado = $conn->query($sql);
+            $numeroR = $resultado->num_rows;
+
+            if($numeroR > 0){
+                while($row = $resultado->fetch_assoc()) {
+
+                    //se tiver resposta
+                    //separar os dados
+                    $id = $row['id'];
+                    $nome = $row['nome'];
+                    $autor = $row['autor'];
+                    $editora = $row['editora']; 
+                    $isbn = $row['isbn'];
+                    $cpf = $row['cpfPedido'];
+
+                    //lancar os dados na tabela nova
+                    $query = "INSERT INTO compras VALUES ($id, $nome, $autor, $editora, $isbn, $cpfPedido, DEFAULT)";
+                    $conn->query($query);
+
+                    $query2 = "DELETE FROM livro WHERE id = $id";
+                    $conn->query($query);
+
+                }
+
+                header('Location: compras.php');
+            }
+        }
+
         public function imprimir(){
             echo 'nome: ' . $this->nome . '<br>';
             echo 'autor: ' . $this->autor . '<br>';
