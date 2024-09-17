@@ -48,7 +48,7 @@
         }
 
         public function login($conn, $cpf, $senha){
-            $sql = "SELECT senha, nome FROM usuario WHERE cpf = '$cpf'";
+            $sql = "SELECT senha, nome , categoria FROM usuario WHERE cpf = '$cpf'";
             $resultado = $conn->query($sql);
             $numeroR = $resultado->num_rows;
 
@@ -58,10 +58,16 @@
                     //se tiver resposta
                     if($numeroR == 1){
                         if($row['senha'] == $senha){
-                            header('Location: ../perfil.php');
                             //iniciar sessao
                             $_SESSION['logado'] = 1;
                             $_SESSION['cpf'] = $cpf;
+                            $_SESSION['categoria'] = $row['categoria'];
+                            if ($_SESSION['categoria'] == 'biblioteca'){
+                                header('Location: ../perfilBiblioteca.php');  
+                            }
+                            else{
+                                header('Location: ../perfil.php');   
+                            };
                         }
                         else{
                            echo '<h1 style = "color: white; background-color: #2E332D; text-align: center">Senha incorreta</h1>';

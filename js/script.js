@@ -40,7 +40,7 @@ nomeLivros.forEach(function(nome, indice){
             }
             else{
                 //se nao tiver capa ele atribui um placeholder
-                img[indice].src = '../img/livros.webp'
+                img[indice].src = '../img/livros.jpg'
             };
 
         })

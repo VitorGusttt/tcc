@@ -10,7 +10,7 @@ $livro = new Livro();
 $livro->setNome($_POST['nomeLivro']);
 $livro->setAutor($_POST['autorLivro']);
 $livro->setEditora($_POST['editoraLivro']);
-$livro->setCategoria($_POST['categoriaLivro']);
+$livro->setIsbn($_POST['isbnLivro']);
 
 //jogo no BD
 $livro->cadastroBD($conn);

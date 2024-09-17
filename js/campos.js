@@ -18,6 +18,7 @@ const Ecpf = document.getElementById('erroCpf');
 const senha = document.getElementById('senhaUsuario');
 const Esenha = document.getElementById('erroSenha');
 
+
 nome.addEventListener('input', function(){
     verificaCampos(nome, Enome);
     }

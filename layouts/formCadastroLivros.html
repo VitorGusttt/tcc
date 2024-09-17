@@ -1,21 +1,22 @@
 <body>
     <div class="formulario">
-        <form action="../php/actions/fazCadastroLivro.php" method="post">
+        <form action="../php/actions/fazCadastroLivro.php" method="post" id="formCadLivro">
 
             <label for="nomeLivro">Nome do Livro:</label>
+            <span id="erroLivro"></span>
             <input type="text" name="nomeLivro" id="nomeLivro">
 
             <label for="autorLivro">Autor do livro:</label>
+            <span id="erroAutor"></span>
             <input type="text" name="autorLivro" id="autorLivro">
 
             <label for="editoraLivro">Editora:</label>
+            <span id="erroEditora"></span>
             <input type="text" name="editoraLivro" id="editoraLivro">
 
-            <label for="categoriaLivro">Categoria do Livro:</label>
-            <select name="categoriaLivro" id="categoriaLivro">
-                <option value="Literatura">Literatura</option>
-                <option value="Didático">Didático</option>
-            </select>
+            <label for="isbnLivro">ISBN do Livro:</label>
+            <input type="text" name="isbnLivro" id="isbnLivro">
+            
 
             <button type="submit" id="btnCadastro">Solicitar</button>
         </form>

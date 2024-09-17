@@ -4,7 +4,8 @@
         private $nome;
         private $autor;
         private $editora;
-        private $categoria;
+        private $isbn;
+        private $statusLivro;
 
         //gets
         public function getNome(){
@@ -16,8 +17,11 @@
         public function getEditora(){
             return $this->editora;
         }
-        public function getCategoria(){
-            return $this->categoria;
+        public function getIsbn(){
+            return $this->isbn;
+        }
+        public function getStatusLivro(){
+            return $this->statusLivro;
         }
 
         //sets
@@ -30,8 +34,11 @@
         public function setEditora($valor){
             $this->editora = $valor;
         }
-        public function setCategoria($valor){
-            $this->categoria = $valor;
+        public function setIsbn($valor){
+            $this->isbn = $valor;
+        }
+        public function setStatusLivro($valor){
+            $this->statusLivro = $valor;
         }
 
         //metodos adicionais
@@ -42,7 +49,7 @@
             }
             else{
                 $cpf = $_SESSION['cpf'];
-                $sql = "INSERT INTO livro VALUES (DEFAULT, '$this->nome', '$this->autor', '$this->editora', '$this->categoria', '$cpf')";
+                $sql = "INSERT INTO livro VALUES (DEFAULT, '$this->nome', '$this->autor', '$this->editora', '$cpf', '$this->isbn', 0)";
                 if ($conn->query($sql)){
                     header('Location: ../perfil.php');
                 }
@@ -58,7 +65,7 @@
             echo 'nome: ' . $this->nome . '<br>';
             echo 'autor: ' . $this->autor . '<br>';
             echo 'editora: ' . $this->editora . '<br>';
-            echo 'categoria: ' . $this->categoria . '<br>';
+            echo 'Isbn: ' . $this->isbn . '<br>';
         }
     }
 ?>
